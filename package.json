@@ -1,0 +1,21 @@
+{
+      "name": "descolada",
+      "description" : "an exercise in futility",
+      "keywords" : [],
+      "version": "0.0.1",
+      "private" : true,
+      "bugs": {
+       "url": ""
+      },
+      "scripts" : {
+        "test" : "make test"
+      },
+      "dependencies": {
+        "markov" : "0.0.6"
+      },
+      "devDependencies" : {
+        "mocha" : "1.8.1",
+        "should" : "1.1.0",
+        "sinon-restore" : "1.0.0"
+      }
+}
