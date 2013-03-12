@@ -1,23 +1,26 @@
-var levels = ['info', 'trace', 'error', 'warn'];
-levels = ['info'];
+var fs = require('fs');
 
-var m = require('markov')(1);
+var lines = fs
+  .readFileSync('ulysses.txt')
+  .toString()
+  .split('\r\n')
+  .filter(function(line) { return line.length > 0; });
+
+
+var randomLineFromFile = function() {
+  return lines[Math.floor(Math.random() * lines.length)];
+};
 
 var sendMessage = function(message) {
   console.log(message);
 };
 
-m.seed(
-  require('fs').createReadStream('ulysses.txt'),
-  function() {
-    setInterval(function() {
-      levels.forEach(function(level) {
-        var message = m.respond('and then what?').join(' ');
-        sendMessage(message);
-      });
-    }, seconds(1));
-  });
+setInterval(function() {
+  var message = randomLineFromFile();
+  sendMessage(message);
+}, seconds(2));
 
 function seconds(arg) {
   return 1000 * arg;
 }
+
