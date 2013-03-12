@@ -1,7 +1,7 @@
 var fs = require('fs');
 
 var lines = fs
-  .readFileSync('ulysses.txt')
+  .readFileSync(__dirname + '/ulysses.txt')
   .toString()
   .split('\r\n')
   .join('\n')
