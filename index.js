@@ -4,6 +4,8 @@ var lines = fs
   .readFileSync('ulysses.txt')
   .toString()
   .split('\r\n')
+  .join('\n')
+  .split('\n')
   .filter(function(line) { return line.length > 0; });
 
 
