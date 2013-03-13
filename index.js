@@ -1,4 +1,5 @@
 var fs = require('fs');
+var LOGFILE = '/var/log/descolada.log';
 
 var lines = fs
   .readFileSync(__dirname + '/ulysses.txt')
@@ -14,6 +15,7 @@ var randomLineFromFile = function() {
 };
 
 var sendMessage = function(message) {
+  fs.appendFileSync(LOGFILE, message + "\n");
   console.log(message);
 };
 
